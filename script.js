@@ -23,7 +23,7 @@ const games = [
     subtitle: "Simulation",
     description: "Take on the role of a trainer to help Umamusume (horse girls) compete in races, deepen bonds, and achieve their goals in this immersive sports life simulation.",
     bgUrl: "https://wallpapercave.com/wp/wp15723726.jpg",
-    cardUrl: "https://steamcdn-a.akamaihd.net/steam/apps/3224770/library_600x900.jpg",
+    cardUrl: "https://wallpapercave.com/w/wp7445405",
     steamUrl: "https://store.steampowered.com/app/3224770/"
   }
 ];
