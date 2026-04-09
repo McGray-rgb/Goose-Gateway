@@ -1,0 +1,334 @@
+:root {
+  --primary-color: #f7b731;
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --bg-gradient: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.8) 100%);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-gradient);
+  pointer-events: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+
+.nav-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links li.active a {
+  color: var(--primary-color);
+}
+
+.nav-links li.active a::after {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-icons .icon {
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+.nav-icons .icon:hover {
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4rem;
+  height: calc(100vh - 100px);
+  align-items: center;
+}
+
+/* Hero Section */
+.hero-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+#subtitle {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+}
+
+#subtitle::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  width: 30px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+#main-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6rem;
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+#description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* CTA Buttons */
+.cta-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  border: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(247, 183, 49, 0.5);
+}
+
+.buy-btn {
+  padding: 0.8rem 2rem;
+  background-color: transparent;
+  border: 1px solid var(--text-muted);
+  border-radius: 30px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.buy-btn:hover {
+  background-color: var(--text-main);
+  color: #000;
+  border-color: var(--text-main);
+}
+
+/* Carousel */
+.carousel-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.cards-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+.game-card {
+  width: 200px;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #111;
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.game-card.active {
+  border: 2px solid var(--primary-color);
+  transform: translateY(-10px);
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+
+.game-card:hover img {
+  opacity: 0.8;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+}
+
+.card-info h4 {
+  font-size: 1.1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+.card-info p {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Controls */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3rem;
+  width: 100%;
+}
+
+.arrows {
+  display: flex;
+  gap: 1rem;
+}
+
+.arrow-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+.arrow-btn:hover {
+  background: var(--text-main);
+  color: #000;
+}
+
+.slide-indicator {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  #main-title { font-size: 4rem; }
+  .game-card { width: 160px; height: 230px; }
+  main { padding: 0 2rem; flex-direction: column; justify-content: center; gap: 3rem;}
+  .carousel-container { align-items: center; }
+  .carousel-controls { justify-content: center; }
+  .navbar { padding: 1.5rem 2rem; }
+}
